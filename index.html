@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Frontend Mentor | [Challenge Name Here]</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      html {
+        overflow-x: hidden;
+      }
+
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Rubik', sans-serif;
+      }
+      .background-path {
+        position: absolute;
+        left: -20%;
+        top: 0;
+        width: 68%;
+        height: 80%;
+        background: linear-gradient(
+          0deg,
+          hsl(264, 100%, 61%) 0%,
+          hsl(293, 100%, 63%) 100%
+        );
+        border-bottom-right-radius: 80%;
+        border-bottom-left-radius: 0%;
+      }
+      main {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+
+      .phone {
+        height: 75vh;
+        width: 25vw;
+        min-width: 235px;
+        max-width: 330px;
+        min-height: 500px;
+        max-height: 535px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
+          0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
+          0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+        background-color: #fff;
+        position: relative;
+        border: 10px solid #fff;
+        border-radius: 20px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 70px 1fr;
+      }
+
+      .nav-bar {
+        background: linear-gradient(
+          90deg,
+          hsl(264, 100%, 61%) 0%,
+          hsl(293, 100%, 63%) 100%
+        );
+        height: 100%;
+        width: 100%;
+        grid-column: 1/-1;
+        grid-row: 1/2;
+        border-radius: 6.5% 6.5% 2.5% 2.5% / 13% 13% 8% 8%;
+        position: relative;
+      }
+      .nav-bar::after {
+        content: '';
+        position: absolute;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        background-color: #fff;
+        left: 20%;
+        top: 0%;
+        width: 60%;
+        height: 25%;
+      }
+      .inner-navbar {
+        display: grid;
+        height: 50px;
+        width: 90%;
+        grid-template-columns: 5% 25% 60% 10%;
+        grid-template-rows: 25px 25px;
+        margin: 20px auto 0 auto;
+      }
+
+      .left-chevron {
+        width: 3.5px;
+        height: 4px;
+        color: #fff;
+        transform: scale(3);
+        grid-column: 1/2;
+        grid-row: 1/-1;
+        margin: auto auto auto auto;
+        cursor: pointer;
+      }
+
+      .avatar-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        max-width: 26px;
+        max-height: 26px;
+        border: 1.9px solid white;
+        grid-column: 2/3;
+        grid-row: 1/-1;
+        margin: auto 0 auto 0.7rem;
+      }
+
+      h6 {
+        color: #fff;
+        grid-row: 1/2;
+        grid-column: 3/4;
+        margin-left: -0.3rem;
+        margin-top: auto;
+      }
+      small {
+        color: beige;
+        grid-row: 2/3;
+        grid-column: 3/4;
+        margin-left: -0.3rem;
+        margin-top: 0.3rem;
+        letter-spacing: 0.2px;
+        font-size: 0.5rem;
+      }
+      .dot-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        grid-column: 4/4;
+        grid-row: 1/-1;
+        cursor: pointer;
+      }
+      .dot {
+        border-radius: 50%;
+        width: 20%;
+        height: 6%;
+        background-color: #fff;
+        margin-top: 2px;
+      }
+      .dots-open {
+        position: absolute;
+        width: 60%;
+        height: 110%;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
+          0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
+          0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+        bottom: -120%;
+        right: 0%;
+        transform: scale(1);
+        z-index: 20;
+        background-color: ivory;
+      }
+      .dots-closed {
+        position: absolute;
+        width: 60%;
+        height: 110%;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
+          0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
+          0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+        bottom: -120%;
+        right: 0%;
+        transition: transform 0.1s linear;
+        transform: scale(0);
+        z-index: 20;
+      }
+      ul {
+        list-style: none;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      li {
+        width: 100%;
+        text-align: center;
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .chat-body {
+        width: 100%;
+        background-color: #f5f3f8;
+        display: flex;
+        flex-direction: column;
+        height: 87%;
+        overflow-y: scroll;
+        padding: 0.7rem;
+        z-index: 5;
+      }
+
+      .profiler-chat {
+        color: hsl(283, 100%, 61%);
+        font-size: 0.45rem;
+        background-color: #eee4f4;
+        height: fit-content;
+        max-width: 65%;
+        padding: 0.5rem;
+        line-height: 160%;
+        border-radius: 8px;
+        border-bottom-left-radius: 4px !important;
+        margin-bottom: 0.5rem;
+        align-self: flex-start;
+      }
+      .myself-chat-pic {
+        display: flex;
+        justify-content: space-between;
+        width: 65%;
+        align-self: flex-end;
+        margin-bottom: 0.5rem;
+        margin-top: 0.6rem;
+      }
+      .myself-chat-pic img {
+        width: 30%;
+        height: 38px;
+        border-radius: 8px;
+        justify-self: right;
+        align-self: right;
+      }
+      .myself-chat {
+        color: rgb(99, 97, 97);
+        font-size: 0.45rem;
+        background-color: #fff;
+        height: fit-content;
+        max-width: 70%;
+        padding: 0.5rem;
+        line-height: 160%;
+        border-radius: 8px;
+        border-bottom-right-radius: 4px !important;
+        margin-bottom: 0.5rem;
+        align-self: flex-end;
+      }
+      .theglobalspacerbetweenthenations {
+        margin-bottom: 0.6rem;
+      }
+      .rate-card {
+        font-size: 0.49rem;
+        align-self: flex-end;
+        background: linear-gradient(
+          90deg,
+          hsl(293, 100%, 63%) 0%,
+          hsl(264, 100%, 61%) 100%
+        );
+        height: 2.2rem;
+        width: 80%;
+        padding: 0.5rem;
+        border-radius: 8px;
+        border-bottom-left-radius: 4px !important;
+        align-self: flex-start;
+        margin-bottom: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #f5f3f8;
+        font-size: 0.5rem;
+      }
+      .rate-selector-btn {
+        width: 12%;
+        height: 87%;
+        background-color: inherit;
+        border-radius: 50%;
+        border: 1px solid rgb(236, 236, 236);
+        margin-right: 5%;
+        cursor: pointer;
+      }
+
+      .rate-description {
+        width: 60%;
+      }
+      .rate-price {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        width: 40%;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+      form {
+        position: absolute;
+        bottom: 2px;
+        height: 13%;
+        background-color: #f5f3f8;
+        width: 100%;
+        display: flex;
+        border-radius: 0% 0% 6.5% 6.5% / 0 0 13% 13%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 1rem;
+      }
+
+      label {
+        font-size: 0.5rem;
+        position: absolute;
+        left: 15%;
+        top: 60%;
+        letter-spacing: 0.3px;
+        color: rgb(99, 97, 97);
+        transition: all 0.1s linear;
+        transform: scale(1);
+      }
+
+      input {
+        width: 90%;
+        height: 70%;
+        border: none;
+        border-radius: 20px;
+        padding-left: 0.9rem;
+        color: grey;
+      }
+      .form-submit {
+        position: absolute;
+        right: 7%;
+        height: 37%;
+        width: 11%;
+        border: none;
+        border-radius: 50%;
+        background-color: #402955;
+        background-image: url(./left-arrow-angle.svg);
+        background-position: 38% 50%;
+        background-repeat: no-repeat;
+        background-size: 45%;
+        transform: rotate(180deg);
+        cursor: pointer;
+      }
+      .text-container {
+        position: absolute;
+        top: 115%;
+        width: 150%;
+        left: -25%;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 2.6rem;
+        margin-bottom: 1.5rem;
+        font-weight: 500;
+        color: #402955;
+      }
+      p {
+        color: darkgray;
+        line-height: 160%;
+        letter-spacing: 0.2px;
+        margin-bottom: 7rem;
+      }
+      @media screen and (min-width: 768px) {
+        .background-path {
+          position: absolute;
+          left: -22%;
+          top: 0;
+          width: 50%;
+          height: 90%;
+          background: linear-gradient(
+            0deg,
+            hsl(264, 100%, 61%) 0%,
+            hsl(293, 100%, 63%) 100%
+          );
+          border-bottom-right-radius: 60%;
+          border-bottom-left-radius: 70%;
+        }
+        .phone {
+          position: absolute;
+          top: 11%;
+          left: 23%;
+        }
+        .text-container {
+          top: 30%;
+          left: 140%;
+          text-align: left;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="background-path"></div>
+      <div id="phone"></div>
+    </main>
+
+    <script type="text/babel">
+      const App = () => {
+        const [logged, setislogged] = React.useState(true);
+        const labela = React.useRef(null);
+        const inputa = React.useRef(null);
+
+        const handleBlur = () => {
+          if (inputa.current.value.length > 1) {
+            labela.style.cssText = 'display:none;';
+          }
+          labela.current.style.cssText = 'transform:scale(1)';
+        };
+
+        const handleFocus = () => {
+          labela.current.style.cssText = 'transform:scale(0);top:10%;';
+        };
+
+        return (
+          <section className="phone">
+            <Header logged={logged}></Header>
+            <section className="chat-body">
+              <span className="profiler-chat ">
+                That sounds great. I’d be happy with that.
+              </span>
+              <span className="profiler-chat">
+                Could you send over some pictures of your dog, please?
+              </span>
+
+              <span className="myself-chat-pic">
+                <img src="./images/dog-image-1.jpg" />
+                <img src="./images/dog-image-2.jpg" />
+                <img src="./images/dog-image-3.jpg" />
+              </span>
+              <span className="myself-chat">
+                Here are a few pictures. She’s a happy girl !
+              </span>
+              <span className="myself-chat theglobalspacerbetweenthenations">
+                Can you make it ?
+              </span>
+              <span className="profiler-chat">
+                She looks so happy! The time we discussed works. How long shall
+                I take her out for ?
+              </span>
+              <div className="rate-card">
+                <span role="button" className="rate-selector-btn"></span>
+                <span className="rate-description"> 30 minutes walk</span>
+
+                <span className="rate-price"> $29</span>
+              </div>
+              <div className="rate-card">
+                <span role="button" className="rate-selector-btn"></span>
+                <span className="rate-description"> 1 hour walk</span>
+                <span className="rate-price">$49</span>
+              </div>
+            </section>
+            <form className="form">
+              <label ref={labela} htmlFor="message">
+                Type a message
+              </label>
+              <input
+                ref={inputa}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                name="message"
+                type="text"
+              />
+              <button className="form-submit"></button>
+            </form>
+            <div className="text-container">
+              <h1>Simple booking</h1>
+              <p>
+                Stay in touch with our dog walkers through the chat interface.
+                This makes it easy to discuss arrangements and make bookings.
+                Once the walk has been completed you can rate your walker and
+                book again all through the chat.
+              </p>
+            </div>
+          </section>
+        );
+      };
+      const Header = ({ logged }) => {
+        const [dotsopen, handledotsopen] = React.useState(false);
+
+        return (
+          <nav aria-expanded="false" className="nav-bar">
+            <div className="inner-navbar">
+              <img className="left-chevron" src="left-arrow-angle.svg" />
+
+              <img
+                className="avatar-img"
+                src="./images/avatar.jpg"
+                alt="myman"
+              />
+
+              {logged ? <h6>Samuel Green</h6> : ''}
+              <small>Available to Walk</small>
+
+              <div
+                role="button"
+                onClick={() => handledotsopen(!dotsopen)}
+                className="dot-container"
+              >
+                <i className="dot"></i>
+                <i className="dot"></i>
+                <i className="dot"></i>
+              </div>
+              <div className={dotsopen ? 'dots-open' : 'dots-closed'}>
+                <ul>
+                  <li>Challenge</li>
+                  <li>by</li>
+                  <li>
+                    <a
+                      href="https://github.com/VincenzoMarcovecchio"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Vincenzo
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        );
+      };
+
+      ReactDOM.render(<App />, document.getElementById('phone'));
+    </script>
+  </body>
+</html>
