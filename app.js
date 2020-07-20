@@ -1,6 +1,10 @@
 const express = require('exress');
 const app = express();
-app.get('*', (req, res) => res.sendFile(__dirname, 'client', 'index.html'));
+const path = require('path');
+app.use(express.static('dist'));
+app.get('*', (req, res) =>
+  res.sendFile(path.resolve(__dirname, 'dist', 'index.html'))
+);
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, console.log(`Server running  on port ${PORT}`));
