@@ -7,6 +7,9 @@
     "type": "git",
     "url": "git+https://github.com/VincenzoMarcovecchio/Chat-App-Luncher.git"
   },
+  "scripts": {
+    "start": "node app.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
