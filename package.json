@@ -1,0 +1,23 @@
+{
+  "name": "chat-app-css-illustration-master",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VincenzoMarcovecchio/Chat-App-Luncher.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VincenzoMarcovecchio/Chat-App-Luncher/issues"
+  },
+  "homepage": "https://github.com/VincenzoMarcovecchio/Chat-App-Luncher#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

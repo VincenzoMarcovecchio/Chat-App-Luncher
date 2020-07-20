@@ -231,7 +231,7 @@
 
       .profiler-chat {
         color: hsl(283, 100%, 61%);
-        font-size: 0.45rem;
+        font-size: 0.5rem;
         background-color: #eee4f4;
         height: fit-content;
         max-width: 65%;
@@ -259,7 +259,7 @@
       }
       .myself-chat {
         color: rgb(99, 97, 97);
-        font-size: 0.45rem;
+        font-size: 0.5rem;
         background-color: #fff;
         height: fit-content;
         max-width: 70%;
@@ -274,8 +274,6 @@
         margin-bottom: 0.6rem;
       }
       .rate-card {
-        font-size: 0.49rem;
-        align-self: flex-end;
         background: linear-gradient(
           90deg,
           hsl(293, 100%, 63%) 0%,
@@ -285,7 +283,7 @@
         width: 80%;
         padding: 0.5rem;
         border-radius: 8px;
-        border-bottom-left-radius: 4px !important;
+        border-bottom-left-radius: 4px;
         align-self: flex-start;
         margin-bottom: 0.5rem;
         display: flex;
@@ -295,8 +293,8 @@
         font-size: 0.5rem;
       }
       .rate-selector-btn {
-        width: 12%;
-        height: 87%;
+        width: 9%;
+        height: 75%;
         background-color: inherit;
         border-radius: 50%;
         border: 1px solid rgb(236, 236, 236);
@@ -308,10 +306,7 @@
         width: 60%;
       }
       .rate-price {
-        display: flex;
-        justify-content: end;
-        align-items: center;
-        width: 40%;
+        width: 25%;
         font-size: 0.8rem;
         font-weight: 600;
       }
@@ -388,8 +383,8 @@
           position: absolute;
           left: -22%;
           top: 0;
-          width: 50%;
-          height: 90%;
+          width: 57%;
+          height: 82%;
           background: linear-gradient(
             0deg,
             hsl(264, 100%, 61%) 0%,
@@ -399,13 +394,11 @@
           border-bottom-left-radius: 70%;
         }
         .phone {
-          position: absolute;
-          top: 11%;
-          left: 23%;
+          margin-left: -250px;
         }
         .text-container {
           top: 30%;
-          left: 140%;
+          left: 130%;
           text-align: left;
         }
       }
@@ -503,7 +496,10 @@
         return (
           <nav aria-expanded="false" className="nav-bar">
             <div className="inner-navbar">
-              <img className="left-chevron" src="left-arrow-angle.svg" />
+              <img
+                className="left-chevron"
+                src="./images/left-arrow-angle.svg"
+              />
 
               <img
                 className="avatar-img"
