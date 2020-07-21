@@ -8,7 +8,8 @@
     "url": "git+https://github.com/VincenzoMarcovecchio/Chat-App-Luncher.git"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
@@ -20,5 +21,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }

@@ -33,13 +33,6 @@
         overflow-x: hidden;
       }
 
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
       * {
         margin: 0;
         padding: 0;
@@ -68,12 +61,10 @@
         align-items: center;
         position: relative;
       }
-
       .phone {
         height: 75vh;
-        width: 25vw;
-        min-width: 285px;
-        max-width: 306px;
+        width: 21.255555555vw;
+        min-width: 245px;
         min-height: 500px;
         max-height: 535px;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
@@ -85,14 +76,14 @@
         border-radius: 20px;
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 70px 1fr;
+        grid-template-rows: 4.52rem 1fr;
       }
 
       .nav-bar {
         background: linear-gradient(
           90deg,
-          hsl(264, 100%, 61%) 0%,
-          hsl(293, 100%, 63%) 100%
+          hsl(264, 97%, 60%) 0%,
+          hsl(291, 97%, 63%) 100%
         );
         height: 100%;
         width: 100%;
@@ -133,12 +124,11 @@
       }
 
       .avatar-img {
-        width: 100%;
         height: 100%;
         border-radius: 50%;
-        max-width: 27px;
-        max-height: 26px;
-        border: 1.9px solid white;
+        width: 25px;
+        height: 25px;
+        border: 0.025rem solid white;
         grid-column: 2/3;
         grid-row: 1/-1;
         margin: auto 0 auto 0.7rem;
@@ -148,17 +138,20 @@
         color: #fff;
         grid-row: 1/2;
         grid-column: 3/4;
-        margin-left: -0.9rem;
+        margin-left: -0.1rem;
         margin-top: auto;
+        letter-spacing: 0.0325rem;
+        font-size: 0.6rem;
       }
       small {
         color: beige;
         grid-row: 2/3;
         grid-column: 3/4;
-        margin-left: -0.9rem;
-        margin-top: 0.2rem;
+        margin-left: -0.1rem;
+        margin-top: 0.25rem;
         letter-spacing: 0.2px;
-        font-size: 0.5rem;
+        letter-spacing: 0.0325rem;
+        font-size: 0.45rem;
       }
       .dot-container {
         display: flex;
@@ -241,7 +234,6 @@
         border-bottom-left-radius: 4px !important;
         margin-bottom: 0.5rem;
         align-self: flex-start;
-        font-weight: 500;
       }
       .myself-chat-pic {
         display: flex;
@@ -270,7 +262,6 @@
         border-bottom-right-radius: 4px !important;
         margin-bottom: 0.5rem;
         align-self: flex-end;
-        font-weight: 500;
       }
       .theglobalspacerbetweenthenations {
         margin-bottom: 0.6rem;
@@ -281,8 +272,8 @@
           hsl(293, 100%, 63%) 0%,
           hsl(264, 100%, 61%) 100%
         );
-        height: 2.8rem;
-        width: 80%;
+        height: 2.5rem;
+        min-width: 80%;
         padding: 0.5rem;
         border-radius: 8px;
         border-bottom-left-radius: 4px;
@@ -295,7 +286,7 @@
         font-size: 0.5rem;
       }
       .rate-selector-btn {
-        width: 7%;
+        width: 8.5%;
         height: 70%;
         background-color: inherit;
         border-radius: 50%;
@@ -305,12 +296,13 @@
       }
 
       .rate-description {
-        width: 60%;
+        min-width: 60%;
       }
       .rate-price {
-        width: 25%;
+        min-width: 25%;
         font-size: 0.8rem;
         font-weight: 600;
+        margin-top: 0.09rem;
       }
       form {
         position: absolute;
@@ -352,15 +344,13 @@
         width: 11%;
         border: none;
         border-radius: 50%;
-        border-color: #402955;
         background-color: #402955;
-        background-image: url(/left-arrow-angle.5bbbed96.svg);
-        background-position: 38% 50%;
+        background-image: url(./images/left-arrow-angle.svg);
+        background-position: 40% 47%;
         background-repeat: no-repeat;
-        background-size: 38%;
+        background-size: 45%;
         transform: rotate(180deg);
         cursor: pointer;
-        display: inline-block;
       }
       .text-container {
         position: absolute;
@@ -378,32 +368,81 @@
       }
       p {
         color: darkgray;
-        line-height: 160%;
+        line-height: 170%;
         letter-spacing: 0.2px;
         margin-bottom: 7rem;
       }
       @media screen and (min-width: 768px) {
+        html {
+          overflow: hidden;
+        }
+        .phone {
+          height: 75vh;
+          width: 19.255555555vw;
+          min-height: 500px;
+          max-height: 505px;
+          margin-left: -26.8vw;
+        }
         .background-path {
           position: absolute;
-          left: -22%;
+          left: -7.5vw;
           top: 0;
-          width: 57%;
-          height: 82%;
+          width: 35vw;
+
+          height: 95vh;
           background: linear-gradient(
             0deg,
             hsl(264, 100%, 61%) 0%,
             hsl(293, 100%, 63%) 100%
           );
-          border-bottom-right-radius: 60%;
-          border-bottom-left-radius: 70%;
+          border-radius: 0% 0% 48% 48% / 0% 0% 48% 48%;
         }
-        .phone {
-          margin-left: -250px;
+        .background-path::after {
+          content: '';
+          position: absolute;
+          right: -80vw;
+          bottom: 0;
+          width: 35vw;
+          height: 70vh;
+          background: #e7e3ec;
+          border-radius: 48% 48% 0% 0% / 48% 48% 0% 0%;
         }
+
         .text-container {
           top: 30%;
-          left: 130%;
+          left: 145%;
           text-align: left;
+          width: 30vw;
+        }
+        p {
+          font-size: 0.8rem;
+          margin-bottom: unset;
+          line-height: 180%;
+        }
+        h1 {
+          font-size: 2.5rem;
+        }
+        .myself-chat {
+          font-size: 0.45rem;
+          font-weight: 500;
+        }
+        .profiler-chat {
+          font-size: 0.45rem;
+          font-weight: 500;
+        }
+        .rate-card {
+          font-size: 0.45rem;
+        }
+        .rate-price {
+          width: 25%;
+          font-size: 0.73rem;
+          font-weight: 600;
+        }
+        h6 {
+          margin-left: -0.5rem;
+        }
+        small {
+          margin-left: -0.5rem;
         }
       }
     </style>
